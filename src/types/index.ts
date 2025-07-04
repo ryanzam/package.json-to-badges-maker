@@ -18,3 +18,9 @@ export interface BadgeData {
     status: 'loading' | 'success' | 'error';
     error?: string;
 }
+
+export interface ExportOptions {
+    format: 'markdown' | 'html' | 'json';
+    includeVersions: boolean;
+    includeIcons: boolean;
+}
