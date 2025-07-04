@@ -10,3 +10,11 @@ export interface ParsedPackages {
     peerDependencies: PackageInfo[];
     optionalDependencies: PackageInfo[];
 }
+
+export interface BadgeData {
+    package: PackageInfo;
+    iconUrl?: string;
+    badgeUrl: string;
+    status: 'loading' | 'success' | 'error';
+    error?: string;
+}
