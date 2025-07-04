@@ -1,4 +1,4 @@
-# Coffee Cabin is a application built using React, Vite and GSAP (GreenSock Animation Platform)
+# Package.json to mass badges generator
 
 ![Vercel](https://vercelbadge.vercel.app/api/ryanzam/package.json-to-badges-generator)
 
