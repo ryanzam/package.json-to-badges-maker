@@ -1,6 +1,7 @@
+import { colorData } from "../data";
 import type { BadgeData, PackageInfo } from "../types";
 
-const SIMPLE_ICONS_API = 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons';
+const SIMPLE_ICONS_API = 'https://cdn.jsdelivr.net/npm/simple-icons@v15.4.0/icons';
 const SHIELDS_IO_BASE = 'https://img.shields.io/badge';
 
 export const generateBadgeUrl = (packageInfo: PackageInfo, color: string = '4F46E5'): string => {
@@ -9,7 +10,7 @@ export const generateBadgeUrl = (packageInfo: PackageInfo, color: string = '4F46
     const versionText = version ? encodeURIComponent(version) : 'latest';
 
     return `${SHIELDS_IO_BASE}/${packageName}-${versionText}-${color}?style=flat-square&logo=${packageName}`;
-};
+}
 
 export const getSimpleIconUrl = (packageName: string): string => {
     const iconSlug = packageName
@@ -29,14 +30,26 @@ export const checkIconExists = async (iconUrl: string): Promise<boolean> => {
     }
 };
 
+export const getBadgeColor = (title: string, idx: any) => {
+
+    const badgeColor = colorData.filter((val) => val.title.toLowerCase() === title)
+
+    if (badgeColor.length === 0) {
+        const colors = ['4F46E5', '10B981', 'F59E0B', 'EF4444', '8B5CF6', 'F97316'];
+
+        return colors[idx % colors.length]
+    }
+
+    return badgeColor[0].hex
+}
+
 export const generateBadgeData = async (packages: PackageInfo[]): Promise<BadgeData[]> => {
-    const colors = ['4F46E5', '10B981', 'F59E0B', 'EF4444', '8B5CF6', 'F97316'];
 
     return Promise.all(
         packages.map(async (pkg, index): Promise<BadgeData> => {
-            const color = colors[index % colors.length];
-            const badgeUrl = generateBadgeUrl(pkg, color);
+
             const iconUrl = getSimpleIconUrl(pkg.name);
+            const badgeUrl = generateBadgeUrl(pkg, getBadgeColor(pkg.name, index));
 
             try {
                 const iconExists = await checkIconExists(iconUrl);

@@ -30,6 +30,7 @@ function App() {
       }
 
       const badgeData = await generateBadgeData(allPackages);
+      
       setBadges(badgeData);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to generate badges');
