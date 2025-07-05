@@ -8,6 +8,7 @@ import type { BadgeData } from './types';
 import Features from './components/Features';
 import Footer from './components/Footer';
 import { generateBadgeData } from './utils/badgeGenerator';
+import ErrorCard from './components/ErrorCard';
 
 function App() {
 
@@ -30,10 +31,10 @@ function App() {
       }
 
       const badgeData = await generateBadgeData(allPackages);
-      
+
       setBadges(badgeData);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to generate badges');
+      setError(err instanceof Error ? err?.message : 'Failed to generate badges');
       setBadges([]);
     } finally {
       setLoading(false);
@@ -53,6 +54,8 @@ function App() {
 
       <main className='container px-5 py-8'>
         <Intro />
+
+        {error && <ErrorCard error={error} />}
 
         <JsonInput onJsonChange={handleJsonChange} onError={handleError} />
 
