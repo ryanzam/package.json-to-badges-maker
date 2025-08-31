@@ -1,5 +1,7 @@
 # Package.json to mass badges generator
 
+## Just copy your package.json and paste it to generate badges
+
 ![Vercel](https://vercelbadge.vercel.app/api/ryanzam/package.json-to-badges-generator)
 
 ## Technologies used
