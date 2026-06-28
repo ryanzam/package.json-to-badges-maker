@@ -11,7 +11,7 @@ const Header = () => {
                         </div>
                         <div>
                             <h1 className="text-xl font-bold text-gray-900">Badge Generator</h1>
-                            <p className="text-sm text-gray-500">Generate badges for your repository from package.json</p>
+                            <p className="text-sm text-gray-500">Generate badges from package.json</p>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { colorData } from "../data";
 import type { BadgeData, PackageInfo } from "../types";
 
-const SIMPLE_ICONS_API = 'https://cdn.jsdelivr.net/npm/simple-icons@v15.4.0/icons';
+const SIMPLE_ICONS_API = 'https://cdn.jsdelivr.net/npm/simple-icons@v16/icons';
 const SHIELDS_IO_BASE = 'https://img.shields.io/badge';
 
 export const generateBadgeUrl = (packageInfo: PackageInfo, color: string = '4F46E5'): string => {
@@ -12,11 +12,7 @@ export const generateBadgeUrl = (packageInfo: PackageInfo, color: string = '4F46
     return `${SHIELDS_IO_BASE}/${packageName}-${versionText}-${color}?style=flat-square&logo=${packageName}`;
 }
 
-export const getSimpleIconUrl = (packageName: string): string => {
-    const iconSlug = packageName
-        .toLowerCase()
-        .replace(/[^a-z0-9]/g, '')
-        .replace(/^@/, '');
+export const getSimpleIconUrl = (iconSlug: string): string => {
 
     return `${SIMPLE_ICONS_API}/${iconSlug}.svg`;
 };
@@ -48,7 +44,19 @@ export const generateBadgeData = async (packages: PackageInfo[]): Promise<BadgeD
     return Promise.all(
         packages.map(async (pkg, index): Promise<BadgeData> => {
 
-            const iconUrl = getSimpleIconUrl(pkg.name);
+            let packageName = "";
+            if (pkg.name.includes("-")) {
+                packageName = pkg.name.split("-")[0]
+            } else {
+                packageName = pkg.name
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]/g, '')
+                    .replace(/^@/, '');
+
+            }
+
+            const iconUrl = getSimpleIconUrl(packageName);
+            pkg.name = packageName
             const badgeUrl = generateBadgeUrl(pkg, getBadgeColor(pkg.name, index));
 
             try {
