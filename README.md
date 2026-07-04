@@ -2,7 +2,14 @@
 
 ## Just copy your package.json and paste it to generate badges
 
+[![NPM](https://nodei.co/npm/json-to-badgemaker.png)](https://npmjs.org/package/json-to-badgemaker)
+
 ![Vercel](https://vercelbadge.vercel.app/api/ryanzam/package.json-to-badges-generator)
+
+[![npm version](https://img.shields.io/npm/v/json-to-badgemaker?style=for-the-badge)](https://www.npmjs.com/package/json-to-badgemaker)
+[![npm downloads](https://img.shields.io/npm/dm/json-to-badgemaker?style=for-the-badge)](https://www.npmjs.com/package/json-to-badgemaker)
+[![npm license](https://img.shields.io/npm/l/json-to-badgemaker?style=for-the-badge)](https://www.npmjs.com/package/json-to-badgemaker)
+[![npm dependents](https://img.shields.io/librariesio/dependents/npm/json-to-badgemaker?style=for-the-badge)](https://www.npmjs.com/package/json-to-badgemaker)
 
 ## Technologies used
   ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
