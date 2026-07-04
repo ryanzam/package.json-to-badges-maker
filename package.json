@@ -23,6 +23,17 @@
     "email": "ryanzam2005@gmail.com",
     "url": "https://ryanzam.is-a.dev"
   },
+  "main": "./dist/package.json-to-badges-maker.es.js",
+  "module": "./dist/package.json-to-badges-maker.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/package.json-to-badges-maker.es.js",
+      "require": "./dist/package.json-to-badges-maker.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
