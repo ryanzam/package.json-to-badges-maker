@@ -13,9 +13,14 @@
     "generator",
     "documentation"
   ],
+  "homepage": "https://json2badges.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanzam/package.json-to-badges-maker"
+  },
   "author": {
     "name": "ryanzam",
-    "email": "aly.ranzam@gmail.com",
+    "email": "ryanzam2005@gmail.com",
     "url": "https://ryanzam.is-a.dev"
   },
   "scripts": {
